@@ -5,6 +5,7 @@ enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
   case functionKeys
   case complexModifications
   case complexModificationsAdvanced
+  case visualEditor
   case devices
   case virtualKeyboard
   case profiles
@@ -25,6 +26,7 @@ enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
     case .functionKeys: return "Function Keys"
     case .complexModifications: return "Complex Modifications"
     case .complexModificationsAdvanced: return "Parameters"
+    case .visualEditor: return "Visual Editor"
     case .devices: return "Devices"
     case .virtualKeyboard: return "Virtual Keyboard"
     case .profiles: return "Profiles"
@@ -45,6 +47,7 @@ enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
     case .functionKeys: return "speaker.wave.2.circle"
     case .complexModifications: return "gearshape.2"
     case .complexModificationsAdvanced: return "dial.min"
+    case .visualEditor: return "keyboard.badge.eye"
     case .devices: return "keyboard"
     case .virtualKeyboard: return "puzzlepiece"
     case .profiles: return "person.3"
@@ -83,6 +86,7 @@ struct ContentMainView: View {
         .functionKeys,
         .complexModifications,
         .complexModificationsAdvanced,
+        .visualEditor,
       ]
     ),
     SidebarSection(
@@ -223,6 +227,8 @@ struct ContentMainView: View {
             ComplexModificationsView()
           case .complexModificationsAdvanced:
             ComplexModificationsAdvancedView()
+          case .visualEditor:
+            VisualEditorView()
           case .devices:
             DevicesView()
           case .virtualKeyboard:
