@@ -6,6 +6,7 @@ struct KeyboardCanvasView: View {
   let selectedKeyCode: String?
   let onKeyTap: (PhysicalKey) -> Void
   let unitSize: CGFloat
+  var layerColor: Color? = nil
 
   var body: some View {
     ZStack(alignment: .topLeading) {
@@ -15,7 +16,8 @@ struct KeyboardCanvasView: View {
             key: key,
             remapTarget: remaps[key.keyCode],
             isSelected: key.keyCode == selectedKeyCode,
-            unitSize: unitSize
+            unitSize: unitSize,
+            layerColor: layerColor
           )
           .offset(
             x: key.x * unitSize,
